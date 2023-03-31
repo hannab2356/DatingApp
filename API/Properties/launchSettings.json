@@ -1,24 +1,15 @@
 {
-  "profiles": {
-    "api": {
-      "commandName": "Project",
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5000;https://localhost:5001",
-      "hotReloadEnabled": false
+    "profiles": {
+        "api": {
+            "commandName": "Project",
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "dotnetRunMessages": true,
+            "applicationUrl": "http://localhost:5000;https://localhost:5001",
+            "hotReloadEnabled": false
+        }
     },
-    "WSL": {
-      "commandName": "WSL2",
-      "launchUrl": "https://localhost:5001/swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://localhost:5000;https://localhost:5001"
-      },
-      "distributionName": ""
-    }
-  },
-  "$schema": "https://json.schemastore.org/launchsettings.json"
+    "$schema": "https://json.schemastore.org/launchsettings.json"
 }
