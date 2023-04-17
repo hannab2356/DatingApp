@@ -11,9 +11,10 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', title: 'Dating App', component: HomeComponent },
     {
         path: '',
+        title: 'Dating App',
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
@@ -23,10 +24,10 @@ const routes: Routes = [
             { path: 'messages', component: MessagesComponent }
         ]
     },
-    { path: 'errors', component: TestErrorComponent },
-    { path: 'not-found', component: NotFoundComponent },
-    { path: 'server-error', component: ServerErrorComponent },
-    { path: '**', component: NotFoundComponent, pathMatch: 'full' }
+    { path: 'errors', title: 'Dating App', component: TestErrorComponent },
+    { path: 'not-found', title: 'Dating App', component: NotFoundComponent },
+    { path: 'server-error', title: 'Dating App', component: ServerErrorComponent },
+    { path: '**', title: 'Dating App', component: NotFoundComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
