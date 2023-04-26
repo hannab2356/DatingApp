@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
     declarations: [],
@@ -14,13 +16,17 @@ import { ToastrModule } from 'ngx-toastr';
         ToastrModule.forRoot({
             positionClass: 'toast-bottom-right'
         }),
-        NgxGalleryModule
+        NgxGalleryModule,
+        NgxSpinnerModule.forRoot({
+            type: 'line-scale-party'
+        })
     ],
     exports: [
         BsDropdownModule,
         TabsModule,
         ToastrModule,
-        NgxGalleryModule 
+        NgxGalleryModule,
+        NgxSpinnerModule
     ]
 })
 export class SharedModule { }
