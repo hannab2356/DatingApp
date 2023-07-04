@@ -1,6 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DatePickerComponent } from './_forms/date-picker/date-picker.component';
 
 @NgModule({
     declarations: [
@@ -38,14 +40,17 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
         ServerErrorComponent,
         MemberCardComponent,
         MemberEditComponent,
-        PhotoEditorComponent
+        PhotoEditorComponent,
+        TextInputComponent,
+        DatePickerComponent
     ],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule,
+		FormsModule,
+		ReactiveFormsModule,
         SharedModule
     ],
     providers: [
