@@ -1,47 +1,43 @@
 <div class="text-center mt-3">
 
     <h3>Your matches</h3>
-    <p>{{pagination?.totalItems}} matches found.</p>
+    <p>{{pagination?.totalItems || 0}} matches found.</p>
 
 </div>
 
-<div class="container d-flex justify-content-center mt-5" *ngIf="userParams">
+<div class="container d-flex mt-5" *ngIf="userParams">
 
     <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="loadMembers()" autocomplete="off">
 
-        <div class="d-flex mx-2">
+        <div class="d-flex me-2">
 
-            <label class="col-form-label">Age from: </label>
+            <label class="col-form-label me-1">Age from: </label>
 
             <input type="number"
-                   class="form-control ms-1"
+                   class="form-control"
                    style="width: 70px"
                    name="minAge"
-                   min="18"
-                   max="99"
                    [(ngModel)]="userParams.minAge" />
         </div>
 
-        <div class="d-flex mx-2">
+        <div class="d-flex me-2">
 
-            <label class="col-form-label">Age to: </label>
+            <label class="col-form-label me-1">Age to: </label>
 
             <input type="number"
-                   class="form-control ms-1"
+                   class="form-control"
                    style="width: 70px"
                    name="maxAge"
-                   min="18"
-                   max="99"
                    [(ngModel)]="userParams.maxAge" />
         </div>
 
         <div class="d-flex px-2">
 
-            <label class="col-form-label me-2">Show: </label>
+            <label class="col-form-label me-1">Show: </label>
 
             <select name="gender"
                     style="width: 150px"
-                    class="form-select ms-1"
+                    class="form-select"
                     [(ngModel)]="userParams.gender">
 
                 <option *ngFor="let gender of genderList" [value]="gender.value">
@@ -91,7 +87,7 @@
     </form>
 </div>
 
-<div class="row d-flex justify-content-center mt-5">
+<div class="row d-flex mt-5">
 
     <div class="col-2" *ngFor="let member of members">
 

@@ -14,6 +14,7 @@ import { MembersService } from '../../_services/members.service';
 })
 export class MemberListComponent implements OnInit {
 	members: Member[] = [];
+	likedMembers: Member[] = [];
 	pagination: Pagination | undefined;
 	userParams: UserParams | undefined;
 	genderList = [{ value: 'male', display: 'Males' }, { value: 'female', display: 'Females' }];

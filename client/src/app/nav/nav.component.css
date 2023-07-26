@@ -4,7 +4,7 @@
 
 img {
     max-height: 50px;
-    border: 2px solid white;
-    border-radius: 50%;
+    border: 1px solid gray;
+    border-radius: 10%;
     display: inline;
 }
