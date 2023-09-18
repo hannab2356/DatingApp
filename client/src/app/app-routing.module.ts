@@ -11,30 +11,31 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { memberDetailedResolver } from './_resolvers/member-detailed.resolver';
 
 const routes: Routes = [
-    { path: '', title: 'Dating App', component: HomeComponent },
-    {
-        path: '',
-        title: 'Dating App',
-        runGuardsAndResolvers: 'always',
-        canActivate: [AuthGuard],
-        children: [
-            { path: 'members', component: MemberListComponent },
-            { path: 'members/:username', component: MemberDetailComponent },
-            { path: 'member/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard] },
-            { path: 'lists', component: ListsComponent },
-            { path: 'messages', component: MessagesComponent }
-        ]
-    },
-    { path: 'errors', title: 'Dating App', component: TestErrorComponent },
-    { path: 'not-found', title: 'Dating App', component: NotFoundComponent },
-    { path: 'server-error', title: 'Dating App', component: ServerErrorComponent },
-    { path: '**', title: 'Dating App', component: NotFoundComponent, pathMatch: 'full' }
+	{ path: '', title: 'Dating App', component: HomeComponent },
+	{
+		path: '',
+		title: 'Dating App',
+		runGuardsAndResolvers: 'always',
+		canActivate: [AuthGuard],
+		children: [
+			{ path: 'members', component: MemberListComponent },
+			{ path: 'members/:username', component: MemberDetailComponent, resolve: { member: memberDetailedResolver } },
+			{ path: 'member/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard] },
+			{ path: 'lists', component: ListsComponent },
+			{ path: 'messages', component: MessagesComponent }
+		]
+	},
+	{ path: 'errors', title: 'Dating App', component: TestErrorComponent },
+	{ path: 'not-found', title: 'Dating App', component: NotFoundComponent },
+	{ path: 'server-error', title: 'Dating App', component: ServerErrorComponent },
+	{ path: '**', title: 'Dating App', component: NotFoundComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

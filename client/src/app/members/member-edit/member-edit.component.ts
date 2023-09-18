@@ -5,7 +5,7 @@ import { take } from 'rxjs';
 import { Member } from '../../_models/member';
 import { User } from '../../_models/user';
 import { AccountService } from '../../_services/account.service';
-import { MembersService } from '../../_services/members.service';
+import { MemberService } from '../../_services/member.service';
 
 @Component({
     selector: 'app-member-edit',
@@ -22,7 +22,7 @@ export class MemberEditComponent implements OnInit {
     member: Member | undefined;
     user: User | null = null;
 
-    constructor(private accountService: AccountService, private memberService: MembersService,
+	constructor(private accountService: AccountService, private memberService: MemberService,
         private toastr: ToastrService) {
 
         this.accountService.currentUser$.pipe(take(1)).subscribe({
