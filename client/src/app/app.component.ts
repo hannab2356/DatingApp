@@ -5,24 +5,24 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavComponent, HomeComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    imports: [RouterOutlet, NavComponent, HomeComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  title: any;
-  accountService = inject(AccountService);
+    title: any;
+    accountService = inject(AccountService);
 
-  ngOnInit(): void {
-    this.setCurrentUser();
-  }
+    ngOnInit(): void {
+        this.setCurrentUser();
+    }
 
-  setCurrentUser() {
-    const userString = localStorage.getItem('user');
-    if (!userString) return;
-    const user = JSON.parse(userString);
-    this.accountService.currentUser.set(user);
-  }
+    setCurrentUser() {
+        const userString = localStorage.getItem('user');
+        if (!userString) return;
+        const user = JSON.parse(userString);
+        this.accountService.currentUser.set(user);
+    }
 }
